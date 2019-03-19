@@ -33,7 +33,7 @@ class Probability {
     }
 
     Probability or(Probability probability) throws InvalidProbabilityException {
-        double orProbabilityValue = 1 - this.and(probability.not()).value;
+        double orProbabilityValue = 1 - this.not().and(probability.not()).value;
         return new Probability(orProbabilityValue);
     }
 }
