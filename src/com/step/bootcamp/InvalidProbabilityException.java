@@ -1,4 +1,7 @@
 package com.step.bootcamp;
 
-public class InvalidProbabilityException {
+class InvalidProbabilityException extends Exception {
+    InvalidProbabilityException() {
+        super("Invalid Probability");
+    }
 }
