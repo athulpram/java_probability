@@ -19,7 +19,7 @@ class Probability {
         return new Probability(MAX_PROBABILITY - this.value);
     }
 
-    Probability intersect(Probability probability) throws InvalidProbabilityException {
+    Probability and(Probability probability) throws InvalidProbabilityException {
         return new Probability(this.value * probability.value);
     }
 

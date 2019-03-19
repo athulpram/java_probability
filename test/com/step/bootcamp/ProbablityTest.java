@@ -32,7 +32,7 @@ class ProbabilityTest {
         Probability coin1ToGetTail = new Probability(0.5);
         Probability coin2ToGetTail = new Probability(0.5);
 
-        Probability actual = coin1ToGetTail.intersect(coin2ToGetTail);
+        Probability actual = coin1ToGetTail.and(coin2ToGetTail);
         Probability expected = new Probability(0.25);
         assertEquals(expected, actual);
     }
