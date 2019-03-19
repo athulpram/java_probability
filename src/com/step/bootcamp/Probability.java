@@ -25,10 +25,10 @@ class Probability {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Probability that = (Probability) o;
+    public boolean equals(Object probability) {
+        if (this == probability) return true;
+        if (probability == null || getClass() != probability.getClass()) return false;
+        Probability that = (Probability) probability;
         return Double.compare(that.value, value) == 0;
     }
 
