@@ -32,4 +32,8 @@ class Probability {
         return Double.compare(that.value, value) == 0;
     }
 
+    Probability or(Probability probability) throws InvalidProbabilityException {
+        double orProbabilityValue = 1 - this.and(probability.not()).value;
+        return new Probability(orProbabilityValue);
+    }
 }

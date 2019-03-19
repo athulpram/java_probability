@@ -28,12 +28,23 @@ class ProbabilityTest {
     }
 
     @Test
-    void shouldReturnTheTotalProbability() throws InvalidProbabilityException {
+    void shouldReturnTheProbabilityOfGettingBothTail() throws InvalidProbabilityException {
         Probability coin1ToGetTail = new Probability(0.5);
         Probability coin2ToGetTail = new Probability(0.5);
 
         Probability actual = coin1ToGetTail.and(coin2ToGetTail);
         Probability expected = new Probability(0.25);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldReturnTheProbabilityOfGettingAtLeastOneTail() throws InvalidProbabilityException {
+        Probability coin1ToGetTail = new Probability(0.5);
+        Probability coin2ToGetTail = new Probability(0.5);
+
+        Probability actual = coin1ToGetTail.or(coin2ToGetTail);
+        Probability expected = new Probability(0.75);
+
+        assertEquals(expected,actual);
     }
 }
