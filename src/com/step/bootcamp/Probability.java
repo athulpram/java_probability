@@ -2,6 +2,8 @@ package com.step.bootcamp;
 
 class Probability {
     private double value;
+    private final int MIN_PROBABILITY = 0;
+    private final int MAX_PROBABILITY = 1;
 
     Probability(double value) throws InvalidProbabilityException {
         this.validateValue(value);
@@ -9,13 +11,18 @@ class Probability {
     }
 
     private void validateValue(double value) throws InvalidProbabilityException {
-        if(value>1 || value<0) throw new InvalidProbabilityException();
+        if (value > MAX_PROBABILITY || value < MIN_PROBABILITY) throw new InvalidProbabilityException();
     }
 
 
-    Probability inverse() throws InvalidProbabilityException {
-        return new Probability(1-this.value);
+    Probability not() throws InvalidProbabilityException {
+        return new Probability(MAX_PROBABILITY - this.value);
     }
+
+    Probability intersect(Probability probability) throws InvalidProbabilityException {
+        return new Probability(this.value * probability.value);
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -24,4 +31,5 @@ class Probability {
         Probability that = (Probability) o;
         return Double.compare(that.value, value) == 0;
     }
+
 }

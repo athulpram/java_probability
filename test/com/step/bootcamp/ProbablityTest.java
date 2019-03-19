@@ -24,6 +24,16 @@ class ProbabilityTest {
     @Test
     void shouldReturnNotProbability() throws InvalidProbabilityException {
         Probability probability = new Probability(0.2);
-        assertEquals(new Probability(0.8),probability.inverse());
+        assertEquals(new Probability(0.8),probability.not());
+    }
+
+    @Test
+    void shouldReturnTheTotalProbability() throws InvalidProbabilityException {
+        Probability coin1ToGetTail = new Probability(0.5);
+        Probability coin2ToGetTail = new Probability(0.5);
+
+        Probability actual = coin1ToGetTail.intersect(coin2ToGetTail);
+        Probability expected = new Probability(0.25);
+        assertEquals(expected, actual);
     }
 }
